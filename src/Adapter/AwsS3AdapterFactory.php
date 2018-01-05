@@ -3,10 +3,10 @@
 namespace DevopsToolAwsS3FilesystemSupport\Adapter;
 
 use Aws\S3\S3Client;
+use DevopsToolAwsS3FilesystemSupport\Exception;
 use Interop\Container\ContainerInterface;
 use Interop\Container\Exception\ContainerException;
 use League\Flysystem\AwsS3v3\AwsS3Adapter;
-use ReflectionClass;
 use Zend\ServiceManager\Exception\ServiceNotCreatedException;
 use Zend\ServiceManager\Exception\ServiceNotFoundException;
 use Zend\ServiceManager\Factory\FactoryInterface;
@@ -29,8 +29,45 @@ class AwsS3AdapterFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        $options['client'] = new S3Client($options['client']);
-        $reflector = new ReflectionClass(AwsS3Adapter::class);
-        return $reflector->newInstanceArgs($options);
+        $this->validateOptions($options);
+
+        $client = new S3Client($options['client']);
+        $bucket = $options['bucket'];
+        $prefix = isset($options['prefix']) ? $options['prefix'] : '';
+        $options = isset($options['options']) ? $options['options'] : [];
+        return new AwsS3Adapter($client, $bucket, $prefix, $options);
+    }
+
+    /**
+     * @param array $options
+     *
+     * @throws Exception\InvalidArgumentException if options are invalid
+     */
+    private function validateOptions(array $options)
+    {
+        $requiredOptions = ['client', 'bucket'];
+        $allowedOptions = ['client', 'bucket', 'prefix', 'options'];
+
+        $missingRequiredOptions = array_diff($requiredOptions, array_keys($options));
+        if ($missingRequiredOptions) {
+            throw new Exception\InvalidArgumentException(
+                sprintf(
+                    'Missing %s constructor options: %s',
+                    AwsS3Adapter::class,
+                    implode(', ', $missingRequiredOptions)
+                )
+            );
+        }
+
+        $disallowedOptions = array_diff(array_keys($options), $allowedOptions);
+        if ($disallowedOptions) {
+            throw new Exception\InvalidArgumentException(
+                sprintf(
+                    'Invalid %s constructor options: %s',
+                    AwsS3Adapter::class,
+                    implode(', ', $disallowedOptions)
+                )
+            );
+        }
     }
 }
