@@ -43,7 +43,7 @@ class AwsS3AdapterFactory implements FactoryInterface
      *
      * @throws Exception\InvalidArgumentException if options are invalid
      */
-    private function validateOptions(array $options)
+    private function validateOptions(array $options): void
     {
         $requiredOptions = ['client', 'bucket'];
         $allowedOptions = ['client', 'bucket', 'prefix', 'options'];
