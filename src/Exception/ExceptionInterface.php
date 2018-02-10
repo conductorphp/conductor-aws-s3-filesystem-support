@@ -1,6 +1,6 @@
 <?php
 
-namespace DevopsToolAwsS3FilesystemSupport\Exception;
+namespace ConductorAwsS3FilesystemSupport\Exception;
 
 interface ExceptionInterface
 {

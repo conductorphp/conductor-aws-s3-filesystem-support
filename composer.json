@@ -1,9 +1,9 @@
 {
-    "name": "robofirm/devops-tool-aws-s3-filesystem-support",
-    "description": "Robofirm DevOps Tool: AWS S3 Filesystem Support",
+    "name": "conductor/aws-s3-filesystem-support",
+    "description": "Conductor: AWS S3 Filesystem Support",
     "type": "library",
-    "homepage": "https://bitbucket.org/robofirm/devops-tool-aws-s3-filesystem-support",
-    "license": "MIT",
+    "homepage": "https://github.com/conductorphp/conductor-aws-s3-filesystem-support",
+    "license": "Apache 2.0",
     "authors": [
         {
             "name": "Kirk Madera",
@@ -19,12 +19,12 @@
     },
     "autoload": {
         "psr-4": {
-            "DevopsToolAwsS3FilesystemSupport\\": "src/"
+            "ConductorAwsS3FilesystemSupport\\": "src/"
         }
     },
     "extra": {
         "zf": {
-            "config-provider": "DevopsToolAwsS3FilesystemSupport\\ConfigProvider"
+            "config-provider": "ConductorAwsS3FilesystemSupport\\ConfigProvider"
         }
     }
 }

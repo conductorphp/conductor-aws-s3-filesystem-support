@@ -1,6 +1,6 @@
 <?php
 
-namespace DevopsToolAwsS3FilesystemSupport;
+namespace ConductorAwsS3FilesystemSupport;
 
 return [
     'factories' => [

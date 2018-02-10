@@ -1,7 +1,8 @@
-Robofirm DevOps Tool: AWS S3 Filesystem Support
+Conductor: AWS S3 Filesystem Support
 ===============================================
 
 # 0.2.0 (Unreleased)
+- Renamed to Conductor
 - Updated php requirement to php 7.1 
 
 # 0.1.1

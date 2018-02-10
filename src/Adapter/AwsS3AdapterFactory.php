@@ -1,9 +1,9 @@
 <?php
 
-namespace DevopsToolAwsS3FilesystemSupport\Adapter;
+namespace ConductorAwsS3FilesystemSupport\Adapter;
 
 use Aws\S3\S3Client;
-use DevopsToolAwsS3FilesystemSupport\Exception;
+use ConductorAwsS3FilesystemSupport\Exception;
 use Interop\Container\ContainerInterface;
 use Interop\Container\Exception\ContainerException;
 use League\Flysystem\AwsS3v3\AwsS3Adapter;
