@@ -1,6 +1,12 @@
 Conductor: AWS S3 Filesystem Support
 ===============================================
 
+# 0.9.1
+- Updated conductor/core require to ~0.9.2
+
+# 0.9.0
+- No changes; Just marking as 0.9.0 for initial consistency with other modules
+
 # 0.2.0 (Unreleased)
 - Renamed to Conductor
 - Updated php requirement to php 7.1 
