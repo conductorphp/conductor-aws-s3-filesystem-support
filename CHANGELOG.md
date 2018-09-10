@@ -1,5 +1,8 @@
-Conductor: AWS S3 Filesystem Support
-===============================================
+Conductor: AWS (Amazon Web Services) S3 Filesystem Support
+==========================================================
+
+# 0.9.2
+- Added initial documentation structure
 
 # 0.9.1
 - Updated conductor/core require to ~0.9.2
