@@ -1,6 +1,9 @@
 Conductor: AWS (Amazon Web Services) S3 Filesystem Support
 ==========================================================
 
+# 0.9.3
+- Fixed license per https://spdx.org/licenses/
+
 # 0.9.2
 - Added initial documentation structure
 
