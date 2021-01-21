@@ -7,9 +7,9 @@ use ConductorAwsS3FilesystemSupport\Exception;
 use Interop\Container\ContainerInterface;
 use Interop\Container\Exception\ContainerException;
 use League\Flysystem\AwsS3v3\AwsS3Adapter;
-use Zend\ServiceManager\Exception\ServiceNotCreatedException;
-use Zend\ServiceManager\Exception\ServiceNotFoundException;
-use Zend\ServiceManager\Factory\FactoryInterface;
+use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
+use Laminas\ServiceManager\Exception\ServiceNotFoundException;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 
 class AwsS3AdapterFactory implements FactoryInterface
 {
