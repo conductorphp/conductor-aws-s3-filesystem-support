@@ -1,6 +1,6 @@
 {
     "name": "conductor/aws-s3-filesystem-support",
-    "description": "Conductor: AWS S3 Filesystem Support",
+    "description": "Conductor AWS S3 Filesystem Support",
     "type": "library",
     "homepage": "https://github.com/conductorphp/conductor-aws-s3-filesystem-support",
     "license": "Apache-2.0",
