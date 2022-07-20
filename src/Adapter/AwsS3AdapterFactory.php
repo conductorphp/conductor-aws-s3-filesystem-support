@@ -6,7 +6,7 @@ use Aws\S3\S3Client;
 use ConductorAwsS3FilesystemSupport\Exception;
 use Interop\Container\ContainerInterface;
 use Interop\Container\Exception\ContainerException;
-use League\Flysystem\AwsS3v3\AwsS3Adapter;
+use League\Flysystem\AwsS3V3\AwsS3V3Adapter;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
 use Laminas\ServiceManager\Exception\ServiceNotFoundException;
 use Laminas\ServiceManager\Factory\FactoryInterface;
@@ -35,7 +35,7 @@ class AwsS3AdapterFactory implements FactoryInterface
         $bucket = $options['bucket'];
         $prefix = isset($options['prefix']) ? $options['prefix'] : '';
         $options = isset($options['options']) ? $options['options'] : [];
-        return new AwsS3Adapter($client, $bucket, $prefix, $options);
+        return new AwsS3V3Adapter($client, $bucket, $prefix, null, null, $options);
     }
 
     /**
