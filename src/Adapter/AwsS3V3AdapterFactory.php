@@ -5,36 +5,29 @@ namespace ConductorAwsS3FilesystemSupport\Adapter;
 use Aws\S3\S3Client;
 use ConductorAwsS3FilesystemSupport\Exception;
 use Interop\Container\ContainerInterface;
-use Interop\Container\Exception\ContainerException;
-use League\Flysystem\AwsS3V3\AwsS3V3Adapter;
-use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
-use Laminas\ServiceManager\Exception\ServiceNotFoundException;
 use Laminas\ServiceManager\Factory\FactoryInterface;
+use League\Flysystem\AwsS3V3\AwsS3V3Adapter;
 
-class AwsS3AdapterFactory implements FactoryInterface
+class AwsS3V3AdapterFactory implements FactoryInterface
 {
 
     /**
      * Create an object
      *
-     * @param  ContainerInterface $container
-     * @param  string             $requestedName
-     * @param  null|array         $options
+     * @param ContainerInterface $container
+     * @param string $requestedName
+     * @param null|array $options
      *
-     * @return object
-     * @throws ServiceNotFoundException if unable to resolve the service.
-     * @throws ServiceNotCreatedException if an exception is raised when
-     *     creating a service.
-     * @throws ContainerException if any other error occurs
+     * @return AwsS3V3Adapter
      */
-    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null): AwsS3V3Adapter
     {
         $this->validateOptions($options);
 
         $client = new S3Client($options['client']);
         $bucket = $options['bucket'];
-        $prefix = isset($options['prefix']) ? $options['prefix'] : '';
-        $options = isset($options['options']) ? $options['options'] : [];
+        $prefix = $options['prefix'] ?? '';
+        $options = $options['options'] ?? [];
         return new AwsS3V3Adapter($client, $bucket, $prefix, null, null, $options);
     }
 
@@ -53,7 +46,7 @@ class AwsS3AdapterFactory implements FactoryInterface
             throw new Exception\InvalidArgumentException(
                 sprintf(
                     'Missing %s constructor options: %s',
-                    AwsS3Adapter::class,
+                    AwsS3V3Adapter::class,
                     implode(', ', $missingRequiredOptions)
                 )
             );
@@ -64,7 +57,7 @@ class AwsS3AdapterFactory implements FactoryInterface
             throw new Exception\InvalidArgumentException(
                 sprintf(
                     'Invalid %s constructor options: %s',
-                    AwsS3Adapter::class,
+                    AwsS3V3Adapter::class,
                     implode(', ', $disallowedOptions)
                 )
             );
