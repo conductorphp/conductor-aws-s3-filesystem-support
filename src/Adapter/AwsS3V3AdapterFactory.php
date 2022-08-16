@@ -4,23 +4,12 @@ namespace ConductorAwsS3FilesystemSupport\Adapter;
 
 use Aws\S3\S3Client;
 use ConductorAwsS3FilesystemSupport\Exception;
-use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use League\Flysystem\AwsS3V3\AwsS3V3Adapter;
 
 class AwsS3V3AdapterFactory implements FactoryInterface
 {
-
-    /**
-     * Create an object
-     *
-     * @param ContainerInterface $container
-     * @param string $requestedName
-     * @param null|array $options
-     *
-     * @return AwsS3V3Adapter
-     */
-    public function __invoke(ContainerInterface $container, $requestedName, array $options = null): AwsS3V3Adapter
+    public function __invoke(\Psr\Container\ContainerInterface $container, $requestedName, ?array $options = null): AwsS3V3Adapter
     {
         $this->validateOptions($options);
 
@@ -32,8 +21,6 @@ class AwsS3V3AdapterFactory implements FactoryInterface
     }
 
     /**
-     * @param array $options
-     *
      * @throws Exception\InvalidArgumentException if options are invalid
      */
     private function validateOptions(array $options): void
