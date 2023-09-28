@@ -6,18 +6,21 @@ use Aws\S3\S3Client;
 use ConductorAwsS3FilesystemSupport\Exception;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use League\Flysystem\AwsS3V3\AwsS3V3Adapter;
-
+use League\Flysystem\AwsS3V3\PortableVisibilityConverter;
+use League\Flysystem\Visibility;
 class AwsS3V3AdapterFactory implements FactoryInterface
 {
-    public function __invoke(\Psr\Container\ContainerInterface $container, $requestedName, ?array $options = null): AwsS3V3Adapter
+    public function __invoke(\Psr\Container\ContainerInterface $container, $requestedName, ?array $config = []): AwsS3V3Adapter
     {
-        $this->validateOptions($options);
+        $this->validateOptions($config);
 
-        $client = new S3Client($options['client']);
-        $bucket = $options['bucket'];
-        $prefix = $options['prefix'] ?? '';
-        $options = $options['options'] ?? [];
-        return new AwsS3V3Adapter($client, $bucket, $prefix, null, null, $options);
+        $client = new S3Client($config['client']);
+        $bucket = $config['bucket'];
+        $prefix = $config['prefix'] ?? '';
+        $options = $config['options'] ?? [];
+        $visibility = new PortableVisibilityConverter($config['visibility'] ?? Visibility::PRIVATE);
+        unset($options['visibility']);
+        return new AwsS3V3Adapter($client, $bucket, $prefix, $visibility, null, $options);
     }
 
     /**
@@ -26,7 +29,7 @@ class AwsS3V3AdapterFactory implements FactoryInterface
     private function validateOptions(array $options): void
     {
         $requiredOptions = ['client', 'bucket'];
-        $allowedOptions = ['client', 'bucket', 'prefix', 'options'];
+        $allowedOptions = ['client', 'bucket', 'prefix', 'options', 'visibility'];
 
         $missingRequiredOptions = array_diff($requiredOptions, array_keys($options));
         if ($missingRequiredOptions) {
