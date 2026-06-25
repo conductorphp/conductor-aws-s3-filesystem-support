@@ -4,6 +4,6 @@ namespace ConductorAwsS3FilesystemSupport;
 
 return [
     'factories' => [
-        \League\Flysystem\AwsS3v3\AwsS3Adapter::class => Adapter\AwsS3AdapterFactory::class,
+        \League\Flysystem\AwsS3V3\AwsS3V3Adapter::class => Adapter\AwsS3V3AdapterFactory::class,
     ],
 ];
