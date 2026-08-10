@@ -1,3 +1,10 @@
+[3.1.0](https://github.com/conductorphp/conductor-aws-s3-filesystem-support/compare/3.0.0...3.1.0) (2026-08-10)
+
+### Features
+* PHP 8.4.1+ (CTAP-1224) ([5eaf2f8](https://github.com/conductorphp/conductor-aws-s3-filesystem-support/commit/5eaf2f8c998d9557ec05b5afdb3de35ae1ac00f1))
+
+<!--- CHANGELOG SPLIT MARKER -->
+
 [2.0.1](https://github.com/conductorphp/conductor-aws-s3-filesystem-support/compare/2.0.0...2.0.1) (2026-06-25)
 
 ### Bug Fixes
