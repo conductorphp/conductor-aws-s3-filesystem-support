@@ -1,3 +1,10 @@
+[3.1.1](https://github.com/conductorphp/conductor-aws-s3-filesystem-support/compare/3.1.0...3.1.1) (2026-08-11)
+
+### Bug Fixes
+* to phpunit 13 (CTAP-1226) ([293cf1c](https://github.com/conductorphp/conductor-aws-s3-filesystem-support/commit/293cf1c48a9d8502272ce7a3650557fd5949fa35))
+
+<!--- CHANGELOG SPLIT MARKER -->
+
 [3.1.0](https://github.com/conductorphp/conductor-aws-s3-filesystem-support/compare/3.0.0...3.1.0) (2026-08-10)
 
 ### Features
