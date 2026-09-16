@@ -1,3 +1,10 @@
+[4.2.0](https://github.com/conductorphp/conductor-aws-s3-filesystem-support/compare/4.1.0...4.2.0) (2026-09-16)
+
+### Features
+* conductor/core ^6.0 (CTAP-1741) ([2715aa0](https://github.com/conductorphp/conductor-aws-s3-filesystem-support/commit/2715aa095675e5ac17525070fd898dea07e3993c))
+
+<!--- CHANGELOG SPLIT MARKER -->
+
 [4.1.0](https://github.com/conductorphp/conductor-aws-s3-filesystem-support/compare/4.0.0...4.1.0) (2026-09-14)
 
 ### Features
