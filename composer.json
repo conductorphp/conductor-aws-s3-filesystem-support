@@ -1,6 +1,6 @@
 {
   "name": "conductor/aws-s3-filesystem-support",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "Conductor AWS S3 Filesystem Support",
   "type": "library",
   "homepage": "https://github.com/conductorphp/conductor-aws-s3-filesystem-support",

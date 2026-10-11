@@ -1,3 +1,10 @@
+[5.0.1](https://github.com/conductorphp/conductor-aws-s3-filesystem-support/compare/5.0.0...5.0.1) (2026-10-11)
+
+### Bug Fixes
+* 5 for master (CTAP-1763) ([25d8762](https://github.com/conductorphp/conductor-aws-s3-filesystem-support/commit/25d8762fd7b9fd06c5193da7261778bbc7649e95))
+
+<!--- CHANGELOG SPLIT MARKER -->
+
 [5.0.0](https://github.com/conductorphp/conductor-aws-s3-filesystem-support/compare/4.2.0...5.0.0) (2026-10-11)
 
 ### Features
